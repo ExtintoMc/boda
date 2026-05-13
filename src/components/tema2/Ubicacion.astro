@@ -1,0 +1,103 @@
+---
+---
+
+<section class="reveal relative flex flex-col items-center w-full overflow-hidden py-16">
+  <!-- Adorno Floral Superior (Derecha) -->
+  <img
+    src="/src/assets/tema2/marco.png"
+    class="absolute right-[-40%] sm:right-[-20%] top-0 h-[60vh] object-contain z-0 pointer-events-none drop-shadow-sm"
+    alt="Decoración floral"
+  />
+
+  <!-- Adorno Floral Inferior (Izquierda) -->
+  <img
+    src="/src/assets/tema2/marco.png"
+    class="absolute left-[-40%] sm:left-[-20%] bottom-0 h-[60vh] object-contain z-0 pointer-events-none drop-shadow-sm scale-x-[-1] rotate-180"
+    alt="Decoración floral"
+  />
+
+  <div class="z-10 flex flex-col items-center w-full max-w-4xl px-6 text-center">
+    <h2 class="font-yrsa text-3xl sm:text-4xl text-dark-blue tracking-[0.2em] uppercase mb-4">
+      Ubicación
+    </h2>
+    <div class="w-16 h-0.5 bg-pastel mb-8"></div>
+
+    <div class="mb-10 text-dark-blue">
+      <h3 class="font-abeezee text-lg font-bold mb-2">Parroquia San Pedro Apóstol</h3>
+      <p class="font-abeezee text-sm opacity-80 leading-relaxed">
+        P.º de las Américas 2538,<br />
+        Contry La Silla 1er Sector,<br />
+        64850 Monterrey, N.L.
+      </p>
+    </div>
+
+    <!-- Contenedor del Mapa con Estilo Premium -->
+    <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-pastel/20 group">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.868774020968!2d-100.2858172!3d25.6425482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf784b80b721%3A0xc3f8e6e5a6b0c6c0!2sParroquia%20San%20Pedro%20Ap%C3%B3stol!5e0!3m2!1ses-419!2smx!4v1715624000000!5m2!1ses-419!2smx"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="grayscale hover:grayscale-0 transition-all duration-700"
+      ></iframe>
+      
+      <!-- Overlay sutil para mejorar integración visual -->
+      <div class="absolute inset-0 pointer-events-none border-white/10 rounded-2xl"></div>
+    </div>
+
+    <div class="mt-10">
+      <a
+        href="https://maps.app.goo.gl/9u7X2RzX8v1P1P1P1" 
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 bg-dark-blue text-white font-abeezee text-xs sm:text-sm font-bold tracking-widest uppercase py-4 px-10 rounded-full shadow-xl hover:bg-dark-blue-2 hover:scale-105 transition-all duration-300"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5 text-pastel"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+        </svg>
+        Cómo llegar
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // Observador para animaciones al hacer scroll
+  const observerOptions = {
+    root: null,
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal').forEach((el) => {
+    observer.observe(el);
+  });
+</script>

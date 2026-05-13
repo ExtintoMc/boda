@@ -1,0 +1,122 @@
+---
+const {
+  mes = "Diciembre",
+  anio = "2026",
+  dia = 6,
+  theme = "tema1",
+} = Astro.props;
+
+const emptyCells = Array(1).fill("");
+const days = Array.from({ length: 31 }, (_, i) => i + 1);
+const allCells = [...emptyCells, ...days];
+
+const isTheme1 = theme === "tema1";
+const textColor = isTheme1 ? "text-pastel" : "text-dark-blue";
+const heartColor = isTheme1 ? "text-pastel" : "text-[#745b46]";
+const btnBg = isTheme1 ? "bg-pastel" : "bg-dark-blue";
+const btnText = isTheme1 ? "text-dark-blue" : "text-white";
+---
+
+<div
+  class={`reveal flex flex-col items-center justify-center w-full max-w-lg mx-auto mt-5 mb-5 font-yrsa relative overflow-hidden ${textColor}`}
+>
+  <h3 class="text-3xl sm:text-4xl tracking-widest mb-4 uppercase">
+    El gran día
+  </h3>
+  <h4 class="text-lg sm:text-xl tracking-[0.3em] font-abeezee mb-10 uppercase">
+    {mes}
+    {anio}
+  </h4>
+
+  <div
+    class={`grid grid-cols-7 gap-x-1 sm:gap-x-2 gap-y-2 text-center w-full px-8 ${isTheme1 ? "" : "bg-[#fff7ee5d]"}`}
+  >
+    <div
+      class="text-xs sm:text-sm font-abeezee tracking-widest mb-2 opacity-80"
+    >
+      LUN
+    </div>
+    <div
+      class="text-xs sm:text-sm font-abeezee tracking-widest mb-2 opacity-80"
+    >
+      MAR
+    </div>
+    <div
+      class="text-xs sm:text-sm font-abeezee tracking-widest mb-2 opacity-80"
+    >
+      MIE
+    </div>
+    <div
+      class="text-xs sm:text-sm font-abeezee tracking-widest mb-2 opacity-80"
+    >
+      JUE
+    </div>
+    <div
+      class="text-xs sm:text-sm font-abeezee tracking-widest mb-2 opacity-80"
+    >
+      VIE
+    </div>
+    <div
+      class="text-xs sm:text-sm font-abeezee tracking-widest mb-2 opacity-80"
+    >
+      SAB
+    </div>
+    <div
+      class="text-xs sm:text-sm font-abeezee tracking-widest mb-2 opacity-80"
+    >
+      DOM
+    </div>
+
+    {
+      allCells.map((cell) => (
+        <div class="relative flex items-center justify-center text-xl sm:text-2xl h-8 w-8 mx-auto">
+          {cell === dia ? (
+            <>
+              <span class="z-10">{cell}</span>
+              <svg
+                class={`absolute w-10 h-10 sm:w-10 sm:h-10 opacity-80 scale-125 ${heartColor}`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                />
+              </svg>
+            </>
+          ) : (
+            <span class="opacity-90">{cell}</span>
+          )}
+        </div>
+      ))
+    }
+  </div>
+
+  <a
+    href={`https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Juan+%26+Lupe&dates=${anio}1206T200000Z/${anio}1207T040000Z&details=¡Te+esperamos+en+nuestro+gran+día!&location=Iglesia+San+Pedro`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={`mt-12 font-abeezee text-xs tracking-widest uppercase py-3 px-6 rounded-full hover:scale-105 transition-transform flex items-center gap-2 ${btnBg} ${btnText} ${isTheme1 ? "mb-40" : ""}`}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+      <line x1="16" y1="2" x2="16" y2="6"></line>
+      <line x1="8" y1="2" x2="8" y2="6"></line>
+      <line x1="3" y1="10" x2="21" y2="10"></line>
+    </svg>
+    Agendar Fecha
+  </a>
+</div>

@@ -1,0 +1,59 @@
+<div id="particles-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+  <!-- JavaScript populates this with particles -->
+</div>
+
+<style>
+  :global(.particle) {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    animation: drift infinite linear;
+    pointer-events: none;
+  }
+
+  @keyframes drift {
+    0% {
+      transform: translateY(-5vh) scale(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(10vh) scale(1);
+    }
+    90% {
+      opacity: 1;
+      transform: translateY(90vh) scale(1);
+    }
+    100% {
+      transform: translateY(105vh) scale(0);
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  const container = document.getElementById('particles-container');
+  if (container) {
+    const particleCount = 45; // Amount of stars/particles
+
+    for (let i = 0; i < particleCount; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        
+        const size = Math.random() * 5 + 2; // Size between 2px and 7px
+        const left = Math.random() * 100;
+        const delay = Math.random() * 20; // Staggered start times
+        const duration = Math.random() * 15 + 15; // Slow fall 15s-30s
+        const opacity = Math.random() * 0.4 + 0.2; // Subtle
+
+        p.style.width = `${size}px`;
+        p.style.height = `${size}px`;
+        p.style.left = `${left}%`;
+        p.style.animationDelay = `${delay}s`;
+        p.style.animationDuration = `${duration}s`;
+        p.style.opacity = `${opacity}`;
+        
+        container.appendChild(p);
+    }
+  }
+</script>

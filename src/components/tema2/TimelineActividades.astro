@@ -1,0 +1,166 @@
+---
+const eventos = [
+  {
+    name: "Ceremonia religiosa",
+    lugar: "Iglesia San Pedro",
+    Ubicacion: "Ver mapa",
+    icon: "src/assets/iglesia.png",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.868774020968!2d-100.2858172!3d25.6425482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf784b80b721%3A0xc3f8e6e5a6b0c6c0!2sParroquia%20San%20Pedro%20Ap%C3%B3stol!5e0!3m2!1ses-419!2smx!4v1715624000000!5m2!1ses-419!2smx",
+  },
+  {
+    name: "Recepción",
+    lugar: "Salón de eventos",
+    Ubicacion: "Ver mapa",
+    icon: "src/assets/brindis.png",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115033.45427181057!2d-100.3891461!3d25.6489114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86629584052156eb%3A0x4bf3ef3e3d240212!2sMonterrey%2C%20N.L.!5e0!3m2!1ses-419!2smx!4v1715624000000!5m2!1ses-419!2smx",
+  },
+];
+
+const actividades = [
+  {
+    name: "Ceremonia religiosa",
+    time: "11:00 AM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><circle cx="9" cy="12" r="5"></circle><circle cx="15" cy="12" r="5"></circle></svg>',
+  },
+  {
+    name: "Sesión de fotos",
+    time: "12:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>',
+  },
+  {
+    name: "Cena",
+    time: "1:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle></svg>',
+  },
+  {
+    name: "Pastel",
+    time: "3:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"></path><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4-2 2-1 2-1"></path><path d="M2 21h20"></path><path d="M7 8v2"></path><path d="M12 8v2"></path><path d="M17 8v2"></path></svg>',
+  },
+  {
+    name: "Brindis",
+    time: "4:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><path d="M8 22h8"></path><path d="M12 15v7"></path><path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5z"></path></svg>',
+  },
+  {
+    name: "Primer baile",
+    time: "5:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>',
+  },
+  {
+    name: "Despedida",
+    time: "11:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
+  },
+];
+---
+
+<section class="reveal flex flex-col w-full relative overflow-hidden">
+  <!-- Adorno Floral Superior (Derecha) -->
+  <img
+    src="/src/assets/tema2/marco.png"
+    class="absolute right-[-40%] sm:right-[-20%] top-0 h-[60vh] object-contain z-0 pointer-events-none drop-shadow-sm"
+    alt="Decoración floral"
+  />
+
+  <!-- Adorno Floral Inferior (Izquierda) -->
+  <img
+    src="/src/assets/tema2/marco.png"
+    class="absolute left-[-40%] sm:left-[-20%] bottom-0 h-[60vh] object-contain z-0 pointer-events-none drop-shadow-sm scale-x-[-1] rotate-180"
+    alt="Decoración floral"
+  />
+  <div class="flex flex-col w-full gap-12 relative mt-40 my-10">
+    {
+      eventos.map((evento, index) => (
+        <div class="relative flex flex-col items-center text-center">
+          <img src={evento.icon} class="h-10 mb-4 z-10" />
+
+          <h2 class="text-3xl sm:text-4xl font-yrsa tracking-[0.25em] text-dark-blue uppercase mb-2">
+            {evento.name}
+          </h2>
+          <p class="text-sm sm:text-base font-abeezee text-gray-600 mb-4 tracking-wide">
+            {evento.lugar}
+          </p>
+
+          <button
+            class="map-toggle-btn bg-dark-blue text-white font-abeezee text-xs tracking-widest uppercase py-2 px-6 rounded-full hover:scale-105 transition-transform shadow-md"
+            data-index={index}
+          >
+            {evento.Ubicacion}
+          </button>
+
+          <div
+            id={`map-container-${index}`}
+            class="map-container overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out w-full max-w-md mx-auto mt-6 px-4"
+          >
+            <div class="aspect-video w-full rounded-xl overflow-hidden shadow-lg border-2 border-dark-blue/10">
+              <iframe
+                src={evento.mapUrl}
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <h2
+    class="text-3xl sm:text-4xl font-yrsa tracking-[0.25em] text-dark-blue uppercase mb-20 w-3/4 mx-auto text-center my-10"
+  >
+    Itinerario de actividades
+  </h2>
+
+  <div class="relative w-full items-center mx-auto pb-10">
+    <div class="relative w-full max-w-[300px] mx-auto px-8 rounded-lg">
+    <div class="absolute left-[50px] top-12 bottom-12 w-px bg-dark-blue/30"></div>
+
+    <div class="space-y-12">
+      {actividades.map((act) => (
+        <div class="relative flex items-center gap-8">
+          <!-- Icon -->
+          <div class="relative z-10 w-15 h-15 flex items-center justify-center bg-white/20 backdrop-blur-sm rounded-full border border-dark-blue/10 text-dark-blue">
+            <Fragment set:html={act.icon} />
+          </div>
+
+          <!-- Text -->
+          <div class="flex flex-col">
+            <span class="font-abeezee text-sm tracking-widest text-dark-blue/80 font-bold">{act.time}</span>
+            <span class="font-abeezee text-sm text-dark-blue/90">{act.name}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const buttons = document.querySelectorAll(".map-toggle-btn");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const index = btn.getAttribute("data-index");
+      const container = document.getElementById(`map-container-${index}`);
+      if (container) {
+        const isOpen = !container.classList.contains("max-h-0");
+
+        if (isOpen) {
+          container.classList.add("max-h-0", "opacity-0");
+          container.classList.remove("max-h-[500px]", "opacity-100");
+          btn.textContent = "Ver mapa";
+        } else {
+          container.classList.remove("max-h-0", "opacity-0");
+          container.classList.add("max-h-[500px]", "opacity-100");
+          btn.textContent = "Cerrar mapa";
+        }
+      }
+    });
+  });
+</script>

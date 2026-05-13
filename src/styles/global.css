@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Parisienne&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Parisienne&family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --font-parisienne: "Parisienne", cursive;
+  --font-abeezee: "ABeeZee", sans-serif;
+  --font-yrsa: "Yrsa", serif;
+
+  --color-pastel: #e3c39d;
+  --color-dark-blue: #001d51;
+  --color-dark-blue-2: #071739;
+  --color-dark-blue-3: #0a1331;
+  --color-white: #ffffff;
+}

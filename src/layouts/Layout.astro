@@ -1,0 +1,70 @@
+---
+import "../styles/global.css";
+import EfectoParticulas from "../components/shared/EfectoParticulas.astro";
+import SelectorTema from "../components/shared/SelectorTema.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Boda Juan & Lupe</title>
+  </head>
+  <body>
+    <SelectorTema />
+    <EfectoParticulas />
+    <div class="w-full md:w-[800px] bg-[#fff7ee] shadow-2xl relative z-10 overflow-hidden">
+      <slot />
+    </div>
+
+    <script>
+      // Scroll Reveal Animaciones
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      // Observador para cuando cargue la página
+      document.addEventListener('DOMContentLoaded', () => {
+        const revealElements = document.querySelectorAll(".reveal");
+        revealElements.forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #222222;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  /* Clases de animación */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

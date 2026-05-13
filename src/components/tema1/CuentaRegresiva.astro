@@ -1,0 +1,130 @@
+---
+import WidgetCalendario from "./WidgetCalendario.astro";
+
+const FECHA = {
+  diaSemana: "Sábado",
+  diaMes: "6",
+  mes: "Diciembre",
+  año: "2026",
+  target: "2026-12-06T18:00:00",
+};
+---
+
+<section class="reveal flex flex-col w-full bg-dark-blue">
+  <p class="text-center font-abeezee text-sm text-pastel my-10 mt-40 w-1/2 mx-auto">
+    Con el amor que nos une y con la bendicion de dios, te invitamos a celebra
+    nuestra boda.
+  </p>
+
+  <div
+    class="flex flex-col text-pastel items-center justify-center p-8 font-serif tracking-widest"
+  >
+    <span class="text-sm mb-1 font-yrsa">{FECHA.mes}</span>
+
+    <div class="flex items-center gap-4 w-full max-w-md">
+      <div
+        class="flex-1 border-t border-b border-gray-400 py-2 flex items-center justify-center"
+      >
+        <span class="text-xs font-yrsa sm:text-sm">{FECHA.diaSemana}</span>
+      </div>
+
+      <div class="text-6xl sm:text-8xl font-parisienne px-2 leading-none">
+        {FECHA.diaMes}
+      </div>
+
+      <div
+        class="flex-1 border-t border-b border-gray-400 py-2 flex items-center justify-center"
+      >
+        <span class="text-xs sm:text-sm font-yrsa">{FECHA.año}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 mb-16 flex flex-col items-center justify-center text-pastel">
+    <p
+      class="text-center text-sm font-yrsa tracking-[0.3em] uppercase mb-6 opacity-80"
+    >
+      Faltan
+    </p>
+
+    <div
+      id="countdown"
+      data-target={FECHA.target}
+      class="flex items-start justify-center font-yrsa text-4xl sm:text-6xl text-pastel"
+    >
+      <div class="flex flex-col items-center mx-1 sm:mx-3 gap-3">
+        <span id="dias">000</span>
+        <span
+          class="text-xs sm:text-sm font-abeezee tracking-widest opacity-80 capitalize"
+          >Días</span
+        >
+      </div>
+      <span class="mt-1 sm:mt-2 opacity-60">:</span>
+      <div class="flex flex-col items-center mx-1 sm:mx-3 gap-3">
+        <span id="horas">00</span>
+        <span
+          class="text-xs sm:text-sm font-abeezee tracking-widest opacity-80 capitalize"
+          >Horas</span
+        >
+      </div>
+      <span class="mt-1 sm:mt-2 opacity-60">:</span>
+      <div class="flex flex-col items-center mx-1 sm:mx-3 gap-3">
+        <span id="minutos">00</span>
+        <span
+          class="text-xs sm:text-sm font-abeezee tracking-widest opacity-80 capitalize"
+          >Min</span
+        >
+      </div>
+      <span class="mt-1 sm:mt-2 opacity-60">:</span>
+      <div class="flex flex-col items-center mx-1 sm:mx-3 gap-3">
+        <span id="segundos">00</span>
+        <span
+          class="text-xs sm:text-sm font-abeezee tracking-widest opacity-80 capitalize"
+          >Seg</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <WidgetCalendario mes={FECHA.mes} anio={FECHA.año} dia={parseInt(FECHA.diaMes)} />
+</section>
+
+<script>
+  const countdownEl = document.getElementById("countdown");
+
+  if (countdownEl) {
+    const targetDate = new Date(
+      countdownEl.dataset.target || "2026-12-06T18:00:00",
+    ).getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) return;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      const formatNum = (num: number, digits = 2) =>
+        num.toString().padStart(digits, "0");
+
+      const diasEl = document.getElementById("dias");
+      const horasEl = document.getElementById("horas");
+      const minEl = document.getElementById("minutos");
+      const segEl = document.getElementById("segundos");
+
+      if (diasEl) diasEl.textContent = formatNum(days, 3);
+      if (horasEl) horasEl.textContent = formatNum(hours, 2);
+      if (minEl) minEl.textContent = formatNum(minutes, 2);
+      if (segEl) segEl.textContent = formatNum(seconds, 2);
+    };
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+</script>

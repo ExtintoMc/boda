@@ -1,0 +1,118 @@
+---
+import WidgetCalendario from "../tema1/WidgetCalendario.astro";
+
+const FECHA = {
+  diaSemana: "Sábado",
+  diaMes: "6",
+  mes: "Diciembre",
+  año: "2026",
+  target: "2026-12-06T18:00:00",
+};
+---
+
+<section class="reveal relative flex flex-col w-full overflow-hidden">
+  
+  <!-- Hojas desde la izquierda (Invertidas) -->
+  <img
+    src="/src/assets/tema2/marco.png"
+    class="absolute left-[-50%] sm:left-[-25%] top-1/2 -translate-y-1/2 h-[80vh] object-contain opacity-90 z-0 pointer-events-none drop-shadow-lg scale-x-[-1]"
+    alt="Hojas acuarela izquierda"
+  />
+
+  <p class="text-center font-abeezee text-sm text-dark-blue my-10 w-1/2 mx-auto relative z-10">
+    Con el amor que nos une y con la bendición de Dios, te invitamos a celebrar nuestra boda.
+  </p>
+
+  <div class="mt-8 mb-16 flex flex-col items-center justify-center text-dark-blue relative z-10">
+    <p
+      class="text-center text-sm font-yrsa tracking-[0.3em] uppercase mb-6 opacity-80"
+    >
+      Faltan
+    </p>
+
+    <div
+      id="countdown"
+      data-target={FECHA.target}
+      class="flex items-start justify-center font-yrsa text-4xl sm:text-6xl text-dark-blue"
+    >
+      <div class="flex flex-col items-center mx-1 sm:mx-3 gap-3">
+        <span id="dias">000</span>
+        <span
+          class="text-xs sm:text-sm font-abeezee tracking-widest opacity-80 capitalize"
+          >Días</span
+        >
+      </div>
+      <span class="mt-1 sm:mt-2 opacity-60">:</span>
+      <div class="flex flex-col items-center mx-1 sm:mx-3 gap-3">
+        <span id="horas">00</span>
+        <span
+          class="text-xs sm:text-sm font-abeezee tracking-widest opacity-80 capitalize"
+          >Horas</span
+        >
+      </div>
+      <span class="mt-1 sm:mt-2 opacity-60">:</span>
+      <div class="flex flex-col items-center mx-1 sm:mx-3 gap-3">
+        <span id="minutos">00</span>
+        <span
+          class="text-xs sm:text-sm font-abeezee tracking-widest opacity-80 capitalize"
+          >Min</span
+        >
+      </div>
+      <span class="mt-1 sm:mt-2 opacity-60">:</span>
+      <div class="flex flex-col items-center mx-1 sm:mx-3 gap-3">
+        <span id="segundos">00</span>
+        <span
+          class="text-xs sm:text-sm font-abeezee tracking-widest opacity-80 capitalize"
+          >Seg</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <WidgetCalendario
+    mes={FECHA.mes}
+    anio={FECHA.año}
+    dia={parseInt(FECHA.diaMes)}
+    theme="tema2"
+  />
+</section>
+
+<script>
+  const countdownEl = document.getElementById("countdown");
+
+  if (countdownEl) {
+    const targetDate = new Date(
+      countdownEl.dataset.target || "2026-12-06T18:00:00",
+    ).getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) return;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      );
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      const formatNum = (num: number, digits = 2) =>
+        num.toString().padStart(digits, "0");
+
+      const diasEl = document.getElementById("dias");
+      const horasEl = document.getElementById("horas");
+      const minEl = document.getElementById("minutos");
+      const segEl = document.getElementById("segundos");
+
+      if (diasEl) diasEl.textContent = formatNum(days, 3);
+      if (horasEl) horasEl.textContent = formatNum(hours, 2);
+      if (minEl) minEl.textContent = formatNum(minutes, 2);
+      if (segEl) segEl.textContent = formatNum(seconds, 2);
+    };
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+</script>

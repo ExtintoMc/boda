@@ -1,0 +1,28 @@
+---
+import Reproductor from "../shared/MusicaFondo.astro";
+---
+
+<section class="relative flex flex-col overflow-hidden">
+  <img
+    src="/src/assets/leaf.png"
+    class="absolute top-0 left-[-5%] md:w-60 w-40"
+  />
+
+  <p class="text-center text-sm font-abeezee w-2/3 mx-auto my-10 mt-40">
+    "Y sobre todas las cosas, vistanse de amor, que es el vinculo perfecto."
+    Colosenses 3:14
+  </p>
+
+  <p
+    class="text-center font-bold text-8xl text-dark-blue font-yrsa w-3/4 mx-auto my-10"
+  >
+    J | L
+  </p>
+
+  <Reproductor />
+
+  <img
+    src="/src/assets/leaf.png"
+    class="absolute bottom-0 right-[-5%] md:w-60 w-40 rotate-180"
+  />
+</section>
