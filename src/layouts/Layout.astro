@@ -17,7 +17,7 @@ import SelectorTema from "../components/shared/SelectorTema.astro";
   <body>
     <SelectorTema />
     <EfectoParticulas />
-    <div class="w-full md:w-[800px] bg-[#fff7ee] shadow-2xl relative z-10 overflow-hidden">
+    <div class="w-full md:w-[800px] shadow-2xl relative z-10 overflow-hidden">
       <slot />
     </div>
 
@@ -31,11 +31,11 @@ import SelectorTema from "../components/shared/SelectorTema.astro";
             }
           });
         },
-        { threshold: 0.1 }
+        { threshold: 0.1 },
       );
 
       // Observador para cuando cargue la página
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         const revealElements = document.querySelectorAll(".reveal");
         revealElements.forEach((el) => observer.observe(el));
       });
@@ -61,7 +61,9 @@ import SelectorTema from "../components/shared/SelectorTema.astro";
   .reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
   }
   .reveal.visible {
     opacity: 1;

@@ -11,10 +11,12 @@ const days = Array.from({ length: 31 }, (_, i) => i + 1);
 const allCells = [...emptyCells, ...days];
 
 const isTheme1 = theme === "tema1";
-const textColor = isTheme1 ? "text-pastel" : "text-dark-blue";
-const heartColor = isTheme1 ? "text-pastel" : "text-[#745b46]";
-const btnBg = isTheme1 ? "bg-pastel" : "bg-dark-blue";
-const btnText = isTheme1 ? "text-dark-blue" : "text-white";
+const isTheme3 = theme === "tema3";
+const isTheme1Or3 = isTheme1 || isTheme3;
+const textColor = isTheme1Or3 ? "text-pastel" : "text-dark-blue";
+const heartColor = isTheme1Or3 ? "text-pastel" : "text-[#745b46]";
+const btnBg = isTheme1Or3 ? "bg-pastel" : "bg-dark-blue";
+const btnText = isTheme1Or3 ? "text-dark-blue" : "text-white";
 ---
 
 <div
@@ -29,7 +31,7 @@ const btnText = isTheme1 ? "text-dark-blue" : "text-white";
   </h4>
 
   <div
-    class={`grid grid-cols-7 gap-x-1 sm:gap-x-2 gap-y-2 text-center w-full px-8 ${isTheme1 ? "" : "bg-[#fff7ee5d]"}`}
+    class={`grid grid-cols-7 gap-x-1 sm:gap-x-2 gap-y-2 text-center w-full px-8 ${isTheme1Or3 ? "" : "bg-[#fff7ee5d]"}`}
   >
     <div
       class="text-xs sm:text-sm font-abeezee tracking-widest mb-2 opacity-80"

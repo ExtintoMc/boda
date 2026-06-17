@@ -1,92 +1,170 @@
 ---
+const eventos = [
+  {
+    name: "Ceremonia religiosa",
+    lugar: "Iglesia San Pedro",
+    Ubicacion: "Ver mapa",
+    icon: "/assets/iglesia.png",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.868774020968!2d-100.2858172!3d25.6425482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf784b80b721%3A0xc3f8e6e5a6b0c6c0!2sParroquia%20San%20Pedro%20Ap%C3%B3stol!5e0!3m2!1ses-419!2smx!4v1715624000000!5m2!1ses-419!2smx",
+  },
+  {
+    name: "Recepción",
+    lugar: "Salón de eventos",
+    Ubicacion: "Ver mapa",
+    icon: "/assets/brindis.png",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115033.45427181057!2d-100.3891461!3d25.6489114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86629584052156eb%3A0x4bf3ef3e3d240212!2sMonterrey%2C%20N.L.!5e0!3m2!1ses-419!2smx!4v1715624000000!5m2!1ses-419!2smx",
+  },
+];
+
 const actividades = [
   {
-    name: "Iglesia",
-    time: "6:00 PM",
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>',
+    name: "Ceremonia religiosa",
+    time: "11:00 AM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><circle cx="9" cy="12" r="5"></circle><circle cx="15" cy="12" r="5"></circle></svg>',
   },
   {
-    name: "Cóctel de bienvenida",
-    time: "7:30 PM",
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>',
+    name: "Sesión de fotos",
+    time: "12:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>',
   },
   {
-    name: "Entrada de novios",
-    time: "8:45 PM",
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>',
+    name: "Cena",
+    time: "1:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle></svg>',
   },
   {
-    name: "Banquete",
-    time: "9:00 PM",
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle></svg>',
+    name: "Pastel",
+    time: "3:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"></path><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4-2 2-1 2-1"></path><path d="M2 21h20"></path><path d="M7 8v2"></path><path d="M12 8v2"></path><path d="M17 8v2"></path></svg>',
   },
   {
-    name: "Fiesta",
-    time: "10:00 PM",
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg>',
+    name: "Brindis",
+    time: "4:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><path d="M8 22h8"></path><path d="M12 15v7"></path><path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5z"></path></svg>',
+  },
+  {
+    name: "Primer baile",
+    time: "5:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>',
   },
   {
     name: "Despedida",
-    time: "3:30 AM",
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
+    time: "11:00 PM",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 sm:w-10 sm:h-10"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>',
   },
 ];
 ---
 
-<section class="relative w-full py-16 px-10 flex flex-col items-center bg-white">
-  <div class="w-full space-y-16 mb-20">
-    <!-- Ceremony -->
-    <div class="flex flex-col items-center text-center">
-      <span class="font-abeezee text-[11px] tracking-[0.2em] text-dark-blue/80 font-bold mb-1">6:00 PM</span>
-      <h3 class="font-yrsa text-xl tracking-[0.2em] text-dark-blue uppercase mb-2">Ceremonia Religiosa</h3>
-      <p class="font-abeezee text-[10px] text-dark-blue/60 uppercase mb-1 font-bold">Parroquia San Pedro Apóstol</p>
-      <p class="font-abeezee text-[10px] leading-relaxed text-dark-blue/50 mb-6">
-        P.º de las Américas 2538, Contry La Silla 1er Sector, Monterrey, N.L.
-      </p>
-      <a 
-        href="https://maps.app.goo.gl/9u7X2RzX8v1P1P1P1" 
-        target="_blank" 
-        class="bg-dark-blue text-white font-abeezee text-[9px] tracking-[0.3em] uppercase py-3 px-10 rounded-sm hover:bg-dark-blue/90 transition-all shadow-md"
-      >
-        Ver Ubicación
-      </a>
-    </div>
+<section class="reveal flex flex-col w-full relative overflow-hidden bg-dark-blue-3">
+  <!-- Adorno Floral Superior (Derecha) -->
+  <img
+    src="/assets/tema2/marco_dorado.png"
+    class="absolute right-[-40%] sm:right-[-20%] top-0 h-[60vh] object-contain z-0 pointer-events-none drop-shadow-sm"
+    alt="Decoración floral"
+  />
 
-    <!-- Reception -->
-    <div class="flex flex-col items-center text-center">
-      <span class="font-abeezee text-[11px] tracking-[0.2em] text-dark-blue/80 font-bold mb-1">8:00 PM</span>
-      <h3 class="font-yrsa text-xl tracking-[0.2em] text-dark-blue uppercase mb-2">Recepción</h3>
-      <p class="font-abeezee text-[10px] text-dark-blue/60 uppercase mb-1 font-bold">Salón de Eventos Royal</p>
-      <p class="font-abeezee text-[10px] leading-relaxed text-dark-blue/50 mb-6">
-        Av. Constitución 1234, Centro, Monterrey, N.L.
-      </p>
-      <a 
-        href="#" 
-        class="bg-dark-blue text-white font-abeezee text-[9px] tracking-[0.3em] uppercase py-3 px-10 rounded-sm hover:bg-dark-blue/90 transition-all shadow-md"
-      >
-        Ver Ubicación
-      </a>
-    </div>
-  </div>
+  <!-- Adorno Floral Inferior (Izquierda) -->
+  <img
+    src="/assets/tema2/marco_dorado.png"
+    class="absolute left-[-40%] sm:left-[-20%] bottom-0 h-[60vh] object-contain z-0 pointer-events-none drop-shadow-sm scale-x-[-1] rotate-180"
+    alt="Decoración floral"
+  />
+  <div class="flex flex-col w-full gap-12 relative mt-40 my-10">
+    {
+      eventos.map((evento, index) => (
+        <div class="relative flex flex-col items-center text-center">
+          <img 
+            src={evento.icon} 
+            class="h-10 mb-4 z-10" 
+            style="filter: invert(88%) sepia(21%) saturate(760%) hue-rotate(331deg) brightness(93%) contrast(92%);" 
+          />
 
-  <h2 class="font-abeezee text-[11px] tracking-[0.3em] text-dark-blue/80 uppercase mb-12">Itinerario de Actividades</h2>
+          <h2 class="text-3xl sm:text-4xl font-yrsa tracking-[0.25em] text-pastel uppercase mb-2">
+            {evento.name}
+          </h2>
+          <p class="text-sm sm:text-base font-abeezee text-white/80 mb-4 tracking-wide">
+            {evento.lugar}
+          </p>
 
-  <div class="relative w-full max-w-[320px] bg-pastel/10 py-12 px-8 rounded-lg overflow-hidden">
-    <div class="absolute left-[50px] top-12 bottom-12 w-px bg-dark-blue/30"></div>
+          <button
+            class="map-toggle-btn bg-pastel text-dark-blue font-abeezee text-xs tracking-widest uppercase py-2 px-6 rounded-full hover:scale-105 transition-transform shadow-md"
+            data-index={index}
+          >
+            {evento.Ubicacion}
+          </button>
 
-    <div class="space-y-12">
-      {actividades.map((act) => (
-        <div class="relative flex items-center gap-8">
-          <div class="relative z-10 w-10 h-10 flex items-center justify-center bg-white rounded-full border border-dark-blue/10 text-dark-blue">
-            <Fragment set:html={act.icon} />
-          </div>
-
-          <div class="flex flex-col">
-            <span class="font-abeezee text-[10px] tracking-widest text-dark-blue/80 font-bold">{act.time}</span>
-            <span class="font-parisienne text-lg text-dark-blue/90">{act.name}</span>
+          <div
+            id={`map-container-${index}`}
+            class="map-container overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out w-full max-w-md mx-auto mt-6 px-4"
+          >
+            <div class="aspect-video w-full rounded-xl overflow-hidden shadow-lg border-2 border-pastel/20">
+              <iframe
+                src={evento.mapUrl}
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         </div>
-      ))}
+      ))
+    }
+  </div>
+
+  <h2
+    class="text-3xl sm:text-4xl font-yrsa tracking-[0.25em] text-pastel uppercase mb-20 w-3/4 mx-auto text-center my-10"
+  >
+    Itinerario de actividades
+  </h2>
+
+  <div class="relative w-full items-center mx-auto pb-10">
+    <div class="relative w-full max-w-[300px] mx-auto px-8 rounded-lg">
+      <div class="absolute left-[50px] top-12 bottom-12 w-px bg-pastel/30"></div>
+
+      <div class="space-y-12">
+        {actividades.map((act) => (
+          <div class="relative flex items-center gap-8 text-pastel">
+            <!-- Icon -->
+            <div class="relative z-10 w-15 h-15 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full border border-pastel/20 text-pastel">
+              <Fragment set:html={act.icon} />
+            </div>
+
+            <!-- Text -->
+            <div class="flex flex-col">
+              <span class="font-abeezee text-sm tracking-widest text-pastel/80 font-bold">{act.time}</span>
+              <span class="font-abeezee text-sm text-white/90">{act.name}</span>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  const buttons = document.querySelectorAll(".map-toggle-btn");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const index = btn.getAttribute("data-index");
+      const container = document.getElementById(`map-container-${index}`);
+      if (container) {
+        const isOpen = !container.classList.contains("max-h-0");
+
+        if (isOpen) {
+          container.classList.add("max-h-0", "opacity-0");
+          container.classList.remove("max-h-[500px]", "opacity-100");
+          btn.textContent = "Ver mapa";
+        } else {
+          container.classList.remove("max-h-0", "opacity-0");
+          container.classList.add("max-h-[500px]", "opacity-100");
+          btn.textContent = "Cerrar mapa";
+        }
+      }
+    });
+  });
+</script>
