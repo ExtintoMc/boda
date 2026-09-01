@@ -15,14 +15,12 @@ import SelectorTema from "../components/shared/SelectorTema.astro";
     <title>Boda Juan & Lupe</title>
   </head>
   <body>
-    <SelectorTema />
     <EfectoParticulas />
     <div class="w-full md:w-[800px] shadow-2xl relative z-10 overflow-hidden">
       <slot />
     </div>
 
     <script>
-      // Scroll Reveal Animaciones
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {

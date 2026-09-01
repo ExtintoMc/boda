@@ -1,24 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Portada from "../components/Portada.astro";
+import MensajeInicial from "../components/MensajeInicial.astro";
+import TimelineActividades from "../components/TimelineActividades.astro";
+import MesaRegalos from "../components/MesaRegalos.astro";
+import ConfirmacionAsistencia from "../components/ConfirmacionAsistencia.astro";
+import CuentaRegresiva from "../components/CuentaRegresiva.astro";
 ---
 
 <Layout>
-  <div
-    class="flex flex-col items-center justify-center min-h-screen text-center p-4 bg-dark-blue w-full h-full text-pastel"
-  >
-    <h1 class="text-4xl font-parisienne mb-8">Bodas Únicas</h1>
-    <p class="font-abeezee mb-12">Bienvenido a la galería de invitaciones</p>
-    <a
-      href="/tema2"
-      class="px-8 py-4 bg-pastel text-dark-blue font-bold rounded-full shadow-2xl hover:scale-110 transition-transform w-full max-w-[250px]"
-    >
-      Ver Tema 1
-    </a>
-    <a
-      href="/tema3"
-      class="px-8 py-4 bg-pastel text-dark-blue font-bold rounded-full shadow-2xl hover:scale-110 transition-transform w-full max-w-[250px]"
-    >
-      Ver Tema 2
-    </a>
+  <div class="bg-dark-blue-3">
+    <Portada />
+    <MensajeInicial />
+    <CuentaRegresiva />
+    <TimelineActividades />
+    <MesaRegalos />
+    <ConfirmacionAsistencia />
   </div>
 </Layout>

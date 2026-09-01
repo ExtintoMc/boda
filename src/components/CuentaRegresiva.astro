@@ -1,17 +1,18 @@
 ---
-import WidgetCalendario from "../tema1/WidgetCalendario.astro";
+import WidgetCalendario from "@/components/WidgetCalendario.astro";
 
 const FECHA = {
   diaSemana: "Sábado",
-  diaMes: "6",
+  diaMes: "19",
   mes: "Diciembre",
   año: "2026",
   target: "2026-12-06T18:00:00",
 };
 ---
 
-<section class="reveal relative flex flex-col w-full overflow-hidden bg-dark-blue-3">
-  
+<section
+  class="reveal relative flex flex-col w-full overflow-hidden bg-dark-blue-3"
+>
   <!-- Hojas desde la izquierda (Invertidas) -->
   <img
     src="/assets/tema2/marco_dorado.png"
@@ -19,11 +20,15 @@ const FECHA = {
     alt="Hojas acuarela izquierda"
   />
 
-  <p class="text-center font-abeezee text-sm text-pastel my-10 w-1/2 mx-auto relative z-10">
-    Con el amor que nos une y con la bendición de Dios, te invitamos a celebrar nuestra boda.
+  <p
+    class="text-center font-abeezee text-sm text-pastel my-10 w-1/2 mx-auto relative z-10"
+  >
+    A donde quiera que vayas ire yo, y donde quieras que viva ire yo.
   </p>
 
-  <div class="mt-8 mb-16 flex flex-col items-center justify-center text-pastel relative z-10">
+  <div
+    class="mt-8 mb-16 flex flex-col items-center justify-center text-pastel relative z-10"
+  >
     <p
       class="text-center text-sm font-yrsa tracking-[0.3em] uppercase mb-6 opacity-80"
     >
