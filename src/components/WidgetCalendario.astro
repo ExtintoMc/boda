@@ -22,16 +22,20 @@ const btnText = isTheme1Or3 ? "text-dark-blue" : "text-white";
 <div
   class={`reveal flex flex-col items-center justify-center w-full max-w-lg mx-auto mt-5 mb-5 font-yrsa relative overflow-hidden ${textColor}`}
 >
-  <h3 class="text-3xl sm:text-4xl tracking-widest mb-4 uppercase">
+  <h2
+    class="text-3xl sm:text-4xl tracking-[0.25em] mb-4 uppercase bg-dark-blue-3/40 backdrop-blur-xs"
+  >
     El gran día
-  </h3>
-  <h4 class="text-lg sm:text-xl tracking-[0.3em] font-abeezee mb-10 uppercase">
+  </h2>
+  <h4
+    class="text-lg sm:text-xl font-abeezee mb-10 bg-dark-blue-3/40 backdrop-blur-xs"
+  >
     {mes}
     {anio}
   </h4>
 
   <div
-    class={`grid grid-cols-7 gap-x-1 sm:gap-x-2 gap-y-2 text-center w-full px-8 ${isTheme1Or3 ? "" : "bg-[#fff7ee5d]"}`}
+    class={`grid grid-cols-7 gap-x-6 sm:gap-x-2 gap-y-2 text-center ${isTheme1Or3 ? "" : "bg-[#fff7ee5d]"} bg-dark-blue-3/40 backdrop-blur-xs rounded-2xl p-6 w-auto m-auto`}
   >
     <div
       class="text-xs sm:text-sm font-abeezee tracking-widest mb-2 opacity-80"
@@ -101,12 +105,11 @@ const btnText = isTheme1Or3 ? "text-dark-blue" : "text-white";
     href={`https://www.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Juan+%26+Lupe&dates=${anio}1206T200000Z/${anio}1207T040000Z&details=¡Te+esperamos+en+nuestro+gran+día!&location=Iglesia+San+Pedro`}
     target="_blank"
     rel="noopener noreferrer"
-    class={`mt-12 font-abeezee text-xs tracking-widest uppercase py-3 px-6 rounded-full hover:scale-105 transition-transform flex items-center gap-2 ${btnBg} ${btnText} ${isTheme1 ? "mb-40" : ""}`}
+    class={`flex items-center gap-2 font-abeezee text-[10px] sm:text-xs font-bold tracking-widest uppercase py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-transform ${btnBg} ${btnText} ${isTheme1 ? "mb-40" : ""}`}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      class="w-4 h-4"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

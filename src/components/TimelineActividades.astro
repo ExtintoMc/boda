@@ -6,7 +6,7 @@ const eventos = [
     Ubicacion: "Ver mapa",
     icon: "/assets/iglesia.png",
     mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.868774020968!2d-100.2858172!3d25.6425482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662bf784b80b721%3A0xc3f8e6e5a6b0c6c0!2sParroquia%20San%20Pedro%20Ap%C3%B3stol!5e0!3m2!1ses-419!2smx!4v1715624000000!5m2!1ses-419!2smx",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d854.4269213806671!2d-104.66586103206072!3d24.022255582667572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bc818efd2e185%3A0xdaf500f1da0eccf8!2sRector%C3%ADa%20de%20San%20Miguel%20Arc%C3%A1ngel!5e0!3m2!1ses-419!2smx!4v1788276082269!5m2!1ses-419!2smx",
   },
   {
     name: "Recepción",
@@ -14,7 +14,7 @@ const eventos = [
     Ubicacion: "Ver mapa",
     icon: "/assets/brindis.png",
     mapUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115033.45427181057!2d-100.3891461!3d25.6489114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86629584052156eb%3A0x4bf3ef3e3d240212!2sMonterrey%2C%20N.L.!5e0!3m2!1ses-419!2smx!4v1715624000000!5m2!1ses-419!2smx",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.6982905374907!2d-104.70585330321043!3d23.971106799999987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bc7002371fb27%3A0xa570710329a3502d!2sFinca%20real%20la%20victoria!5e0!3m2!1ses-419!2smx!4v1788282899193!5m2!1ses-419!2smx",
   },
 ];
 
@@ -53,17 +53,15 @@ const actividades = [
 ---
 
 <section class="reveal flex flex-col w-full relative overflow-hidden bg-dark-blue-3">
-  <!-- Adorno Floral Superior (Derecha) -->
   <img
     src="/assets/tema2/marco_dorado.png"
     class="absolute right-[-40%] sm:right-[-20%] top-0 h-[60vh] object-contain z-0 pointer-events-none drop-shadow-sm"
     alt="Decoración floral"
   />
 
-  <!-- Adorno Floral Inferior (Izquierda) -->
   <img
     src="/assets/tema2/marco_dorado.png"
-    class="absolute left-[-40%] sm:left-[-20%] bottom-0 h-[60vh] object-contain z-0 pointer-events-none drop-shadow-sm scale-x-[-1] rotate-180"
+    class="absolute left-[-40%] sm:left-[-20%] bottom-0 h-[60vh] object-contain z-0 pointer-events-none drop-shadow-sm scale-x-[-1]"
     alt="Decoración floral"
   />
   <div class="flex flex-col w-full gap-12 relative mt-40 my-10">
@@ -76,15 +74,15 @@ const actividades = [
             style="filter: invert(88%) sepia(21%) saturate(760%) hue-rotate(331deg) brightness(93%) contrast(92%);" 
           />
 
-          <h2 class="text-3xl sm:text-4xl font-yrsa tracking-[0.25em] text-pastel uppercase mb-2">
+          <h2 class="text-3xl sm:text-4xl font-yrsa tracking-[0.25em] text-pastel uppercase max-w-9/12  mb-2">
             {evento.name}
           </h2>
-          <p class="text-sm sm:text-base font-abeezee text-white/80 mb-4 tracking-wide">
+          <p class="text-lg sm:text-xl font-abeezee bg-dark-blue-3/40 backdrop-blur-xs text-pastel mt-4 mb-8 tracking-wide">
             {evento.lugar}
           </p>
 
           <button
-            class="map-toggle-btn bg-pastel text-dark-blue font-abeezee text-xs tracking-widest uppercase py-2 px-6 rounded-full hover:scale-105 transition-transform shadow-md"
+            class="flex items-center gap-2 bg-pastel text-dark-blue font-abeezee text-[10px] sm:text-xs font-bold tracking-widest uppercase py-3 px-8 rounded-full shadow-lg hover:scale-105 transition-transform map-toggle-btn"
             data-index={index}
           >
             {evento.Ubicacion}
@@ -118,14 +116,14 @@ const actividades = [
   </h2>
 
   <div class="relative w-full items-center mx-auto pb-10">
-    <div class="relative w-full max-w-[300px] mx-auto px-8 rounded-lg">
-      <div class="absolute left-[50px] top-12 bottom-12 w-px bg-pastel/30"></div>
+    <div class="relative w-full max-w-75 mx-auto px-8 rounded-lg">
+      <div class="absolute left-12.5 top-12 bottom-12 w-px bg-pastel/50"></div>
 
       <div class="space-y-12">
         {actividades.map((act) => (
           <div class="relative flex items-center gap-8 text-pastel">
             <!-- Icon -->
-            <div class="relative z-10 w-15 h-15 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-full border border-pastel/20 text-pastel">
+            <div class="relative z-10 w-15 h-15 flex items-center justify-center bg-dark-blue/40 backdrop-blur-sm rounded-full border border-pastel/20 text-pastel">
               <Fragment set:html={act.icon} />
             </div>
 

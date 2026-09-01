@@ -1,22 +1,40 @@
 ---
 import "../styles/global.css";
 import EfectoParticulas from "../components/shared/EfectoParticulas.astro";
-import SelectorTema from "../components/shared/SelectorTema.astro";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>Boda Juan & Lupe</title>
+
+    <!-- Título de la pestaña -->
+    <title>Boda Felipe & Ashley 💍</title>
+
+    <!-- Open Graph / WhatsApp / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://boda-psi-rouge.vercel.app/" />
+    <meta property="og:title" content="Boda de Felipe y Ashley 💍" />
+    <meta
+      property="og:description"
+      content="¡Acompáñanos a celebrar nuestro gran día! Consulta los detalles y confirmación aquí."
+    />
+    <meta
+      property="og:image"
+      content="https://boda-psi-rouge.vercel.app/imagen-previa.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <link rel="icon" type="image/svg+xml" href="/boda.svg" />
+    <link rel="shortcut icon" href="/boda.png" />
   </head>
+
   <body>
     <EfectoParticulas />
-    <div class="w-full md:w-[800px] shadow-2xl relative z-10 overflow-hidden">
+    <div class="w-full md:w-200 shadow-2xl relative z-10 overflow-hidden">
       <slot />
     </div>
 
